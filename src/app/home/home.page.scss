@@ -1,27 +1,144 @@
-#container {
+:root {
+  // 🎨 Tema claro (día)
+  --clasica-bg-light: #ffffff;
+  --clasica-text-light: #1e3a8a;
+  --clasica-title-light: #0f172a;
+
+  --reggaeton-bg-light: #fff7ed;
+  --reggaeton-text-light: #7c2d12;
+  --reggaeton-title-light: #b45309;
+
+  --rock-bg-light: #f3f4f6;
+  --rock-text-light: #111827;
+  --rock-title-light: #1e293b;
+
+  --jazz-bg-light: #fdf4ff;
+  --jazz-text-light: #581c87;
+  --jazz-title-light: #4c1d95;
+
+  // 🌚 Tema oscuro (noche)
+  --clasica-bg-dark: #1e293b;
+  --clasica-text-dark: #cbd5e1;
+  --clasica-title-dark: #f1f5f9;
+
+  --reggaeton-bg-dark: #7c2d12;
+  --reggaeton-text-dark: #ffe8c8;
+  --reggaeton-title-dark: #ffb347;
+
+  --rock-bg-dark: #0f172a;
+  --rock-text-dark: #e5e7eb;
+  --rock-title-dark: #facc15;
+
+  --jazz-bg-dark: #3b0764;
+  --jazz-text-dark: #f3e8ff;
+  --jazz-title-dark: #d8b4fe;
+}
+
+// ⚙️ Variables dinámicas dependiendo del tema
+body[color-theme="light"] {
+  background-color: #ffffff;
+
+  --clasica-bg: var(--clasica-bg-light);
+  --clasica-text: var(--clasica-text-light);
+  --clasica-title: var(--clasica-title-light);
+
+  --reggaeton-bg: var(--reggaeton-bg-light);
+  --reggaeton-text: var(--reggaeton-text-light);
+  --reggaeton-title: var(--reggaeton-title-light);
+
+  --rock-bg: var(--rock-bg-light);
+  --rock-text: var(--rock-text-light);
+  --rock-title: var(--rock-title-light);
+
+  --jazz-bg: var(--jazz-bg-light);
+  --jazz-text: var(--jazz-text-light);
+  --jazz-title: var(--jazz-title-light);
+}
+
+body[color-theme="dark"] {
+  background-color: #0a0a0a;
+
+  --clasica-bg: var(--clasica-bg-dark);
+  --clasica-text: var(--clasica-text-dark);
+  --clasica-title: var(--clasica-title-dark);
+
+  --reggaeton-bg: var(--reggaeton-bg-dark);
+  --reggaeton-text: var(--reggaeton-text-dark);
+  --reggaeton-title: var(--reggaeton-title-dark);
+
+  --rock-bg: var(--rock-bg-dark);
+  --rock-text: var(--rock-text-dark);
+  --rock-title: var(--rock-title-dark);
+
+  --jazz-bg: var(--jazz-bg-dark);
+  --jazz-text: var(--jazz-text-dark);
+  --jazz-title: var(--jazz-title-dark);
+}
+
+// 🧩 Estilos de los slides
+.slide-content {
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  padding: 20px;
+  border-radius: 20px;
+  margin: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.4s, color 0.4s;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.slide-content h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  transition: color 0.4s;
 }
 
-#container p {
+.slide-content p {
   font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+  line-height: 1.6;
+  transition: color 0.4s;
 }
 
-#container a {
-  text-decoration: none;
+.slide-content img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+// 🎵 Estilos dinámicos por género
+.slide-content.clasica {
+  background-color: var(--clasica-bg);
+  color: var(--clasica-text);
+}
+
+.slide-content.clasica h2 {
+  color: var(--clasica-title);
+}
+
+.slide-content.reggaeton {
+  background-color: var(--reggaeton-bg);
+  color: var(--reggaeton-text);
+}
+
+.slide-content.reggaeton h2 {
+  color: var(--reggaeton-title);
+}
+
+.slide-content.rock {
+  background-color: var(--rock-bg);
+  color: var(--rock-text);
+}
+
+.slide-content.rock h2 {
+  color: var(--rock-title);
+}
+
+.slide-content.jazz {
+  background-color: var(--jazz-bg);
+  color: var(--jazz-text);
+}
+
+.slide-content.jazz h2 {
+  color: var(--jazz-title);
 }

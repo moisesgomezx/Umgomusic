@@ -1,37 +1,77 @@
-/*
- * App Global CSS
- * ----------------------------------------------------------------------------
- * Put style rules here that you want to apply globally. These styles are for
- * the entire app and not just one component. Additionally, this file can be
- * used as an entry point to import other CSS/Sass files to be included in the
- * output CSS.
- * For more information on global stylesheets, visit the documentation:
- * https://ionicframework.com/docs/layout/global-stylesheets
- */
+:root {
+  
+  --clasica-bg-light: #ffffff;
+  --clasica-text-light: #1e3a8a;
+  --clasica-title-light: #0f172a;
 
-/* Core CSS required for Ionic components to work properly */
-@import "@ionic/angular/css/core.css";
+  --reggaeton-bg-light: #fff7ed;
+  --reggaeton-text-light: #7c2d12;
+  --reggaeton-title-light: #b45309;
 
-/* Basic CSS for apps built with Ionic */
-@import "@ionic/angular/css/normalize.css";
-@import "@ionic/angular/css/structure.css";
-@import "@ionic/angular/css/typography.css";
-@import "@ionic/angular/css/display.css";
+  --rock-bg-light: #f3f4f6;
+  --rock-text-light: #111827;
+  --rock-title-light: #1e293b;
 
-/* Optional CSS utils that can be commented out */
-@import "@ionic/angular/css/padding.css";
-@import "@ionic/angular/css/float-elements.css";
-@import "@ionic/angular/css/text-alignment.css";
-@import "@ionic/angular/css/text-transformation.css";
-@import "@ionic/angular/css/flex-utils.css";
+  --jazz-bg-light: #fdf4ff;
+  --jazz-text-light: #581c87;
+  --jazz-title-light: #4c1d95;
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
+  
+  --clasica-bg-dark: #1e293b;
+  --clasica-text-dark: #cbd5e1;
+  --clasica-title-dark: #f1f5f9;
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+  --reggaeton-bg-dark: #7c2d12;
+  --reggaeton-text-dark: #ffe8c8;
+  --reggaeton-title-dark: #ffb347;
+
+  --rock-bg-dark: #0f172a;
+  --rock-text-dark: #e5e7eb;
+  --rock-title-dark: #facc15;
+
+  --jazz-bg-dark: #3b0764;
+  --jazz-text-dark: #f3e8ff;
+  --jazz-title-dark: #d8b4fe;
+}
+
+
+body[color-theme="light"] {
+  background-color: #ffffff;
+
+  --clasica-bg: var(--clasica-bg-light);
+  --clasica-text: var(--clasica-text-light);
+  --clasica-title: var(--clasica-title-light);
+
+  --reggaeton-bg: var(--reggaeton-bg-light);
+  --reggaeton-text: var(--reggaeton-text-light);
+  --reggaeton-title: var(--reggaeton-title-light);
+
+  --rock-bg: var(--rock-bg-light);
+  --rock-text: var(--rock-text-light);
+  --rock-title: var(--rock-title-light);
+
+  --jazz-bg: var(--jazz-bg-light);
+  --jazz-text: var(--jazz-text-light);
+  --jazz-title: var(--jazz-title-light);
+}
+
+
+body[color-theme="dark"] {
+  background-color: #0a0a0a;
+
+  --clasica-bg: var(--clasica-bg-dark);
+  --clasica-text: var(--clasica-text-dark);
+  --clasica-title: var(--clasica-title-dark);
+
+  --reggaeton-bg: var(--reggaeton-bg-dark);
+  --reggaeton-text: var(--reggaeton-text-dark);
+  --reggaeton-title: var(--reggaeton-title-dark);
+
+  --rock-bg: var(--rock-bg-dark);
+  --rock-text: var(--rock-text-dark);
+  --rock-title: var(--rock-title-dark);
+
+  --jazz-bg: var(--jazz-bg-dark);
+  --jazz-text: var(--jazz-text-dark);
+  --jazz-title: var(--jazz-title-dark);
+}
