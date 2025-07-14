@@ -1,24 +1,58 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Géneros Musicales</ion-title>
-    <ion-button slot="end" (click)="cambiarTema()">Cambiar Tema</ion-button>
+    <ion-button
+      slot="end"
+      fill="outline"
+      shape="round"
+      color="dark"
+      (click)="cambiarTema()"
+    >
+      Cambiar Tema
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <swiper-container
-    pagination="true"
-    navigation="true"
-    scrollbar="true"
-    style="height: 100%"
-  >
-    <swiper-slide *ngFor="let genero of generosMusicales">
-      <div class="slide-content" [ngClass]="genero.estilo">
-        <h2>{{ genero.titulo }}</h2>
-        <img [src]="genero.imagen" [alt]="genero.titulo" />
-        <p>{{ genero.descripcion }}</p>
-      </div>
-    </swiper-slide>
-  </swiper-container>
-</ion-content>
+<ion-content fullscreen class="ion-padding">
 
+  <!-- Intro con Slides -->
+  <div *ngIf="mostrarIntro" class="intro-container" style="text-align: center;">
+    <swiper-container
+      pagination="true"
+      navigation="true"
+      scrollbar="true"
+      style="max-width: 600px; height: 420px; margin: auto; display: block;"
+    >
+      <swiper-slide *ngFor="let genero of generosMusicales">
+        <div [ngClass]="['slide-content', genero.estilo]">
+          <h2>{{ genero.titulo }}</h2>
+          <img [src]="genero.imagen" [alt]="genero.titulo" />
+          <p>{{ genero.descripcion }}</p>
+        </div>
+      </swiper-slide>
+    </swiper-container>
+
+    <!-- Botones para controlar la intro -->
+    <div style="margin-top: 24px;">
+      <ion-button expand="full" color="success" (click)="empezarApp()" style="margin-bottom: 12px;">
+        Empezar
+      </ion-button>
+
+      <ion-button expand="full" color="medium" (click)="verIntroNuevamente()">
+        Ver intro nuevamente
+      </ion-button>
+    </div>
+  </div>
+
+  <!-- Contenido principal -->
+  <div *ngIf="!mostrarIntro" class="contenido-principal ion-padding" style="text-align: center;">
+    <h2>Bienvenido a Umgomusic 🎵</h2>
+    <p>Aquí verás tu contenido principal después de la intro.</p>
+
+    <!-- Botón para entrar a la app -->
+    <ion-button expand="full" color="primary" (click)="entrarApp()">
+      Entrar a la App
+    </ion-button>
+  </div>
+
+</ion-content>

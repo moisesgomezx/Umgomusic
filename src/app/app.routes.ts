@@ -1,13 +1,16 @@
 import { Routes } from '@angular/router';
+import { HomePage } from './home/home.page';
+import { IntroGuard } from './guards/intro.guard';
 
 export const routes: Routes = [
-  {
-    path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
-  },
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path: 'home',
+    component: HomePage,
+    canActivate: [IntroGuard],
+  }
 ];
