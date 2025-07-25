@@ -1,88 +1,61 @@
-// 🎨 Variables de fondo por género y tema
-body[color-theme="light"] {
-  --clasica-bg: linear-gradient(135deg, #c2e9fb, #a1c4fd);
-  --clasica-text: #0f172a;
 
-  --reggaeton-bg: linear-gradient(135deg, #ffecd2, #fcb69f);
-  --reggaeton-text: #4b2c20;
 
-  --rock-bg: linear-gradient(135deg, #fceabb, #f8b500);
-  --rock-text: #2c2100;
-
-  --jazz-bg: linear-gradient(135deg, #fbc2eb, #a6c1ee);
-  --jazz-text: #3b0a4f;
-
-  --fondo-app: #ffffff;
-}
-
-body[color-theme="dark"] {
-  --clasica-bg: linear-gradient(135deg, #2b5876, #4e4376);
-  --clasica-text: #f1f5f9;
-
-  --reggaeton-bg: linear-gradient(135deg, #432818, #000000);
-  --reggaeton-text: #ffe8c8;
-
-  --rock-bg: linear-gradient(135deg, #232526, #414345);
-  --rock-text: #ffffff;
-
-  --jazz-bg: linear-gradient(135deg, #2c3e50, #4ca1af);
-  --jazz-text: #e0f7ff;
-
-  --fondo-app: linear-gradient(180deg, #0a0a0a, #1e1e1e);
-}
-
-// 🌍 Fondo del contenido principal
+/* 🌍 Fondo del contenido principal */
 ion-content {
-  background: var(--fondo-app) !important;
+  --background: var(--fondo-app);
+  color: var(--texto-principal);
 }
 
-// 🧩 Estilos del slide
+/* 🧩 Estilos del slide */
 .slide-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 120%;
+  padding: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
   text-align: center;
-  padding: 20px;
-  border-radius: 20px;
-  margin: 20px auto;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  transition: background 0.4s, color 0.4s;
-  max-width: 95%;
 }
 
-.slide-content h2,
-.slide-content p {
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
-  transition: color 0.3s;
-}
-
-.slide-content h2 {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-
-.slide-content p {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.slide-content img {
-  width: 100%;
-  max-width: 280px;
-  height: auto;
-  border-radius: 12px;
-  margin-bottom: 15px;
+.slide-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  display: block;
+  margin-bottom: 5px;
+  border: 4px solid rgba(255, 255, 255, 0.61);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-// 🌈 Estilos dinámicos por género
+.slide-text h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.slide-text p {
+  font-size: 1rem;
+  line-height: 1.5;
+  padding-inline: 30%px;
+  margin: 0px 0px 30px 0px;
+}
+
+
+body[color-theme="dark"] .welcome-card {
+  background: rgba(var(--ion-color-primary-rgb, 72, 138, 255), 0.8);
+}
+body[color-theme="light"] .welcome-card {
+  background: rgba(249, 235, 255, 0.8);
+}
+
+
+
+/* 🌈 Estilos dinámicos por género */
 .slide-content.clasica {
   background: var(--clasica-bg);
-  color: var(--clasica-text);
-}
-
-.slide-content.clasica h2,
-.slide-content.clasica p {
   color: var(--clasica-text);
 }
 
@@ -91,18 +64,8 @@ ion-content {
   color: var(--reggaeton-text);
 }
 
-.slide-content.reggaeton h2,
-.slide-content.reggaeton p {
-  color: var(--reggaeton-text);
-}
-
 .slide-content.rock {
   background: var(--rock-bg);
-  color: var(--rock-text);
-}
-
-.slide-content.rock h2,
-.slide-content.rock p {
   color: var(--rock-text);
 }
 
@@ -111,49 +74,160 @@ ion-content {
   color: var(--jazz-text);
 }
 
-.slide-content.jazz h2,
-.slide-content.jazz p {
-  color: var(--jazz-text);
+/* ✨ Estilos de botones */
+ion-button {
+  --border-radius: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
-// 🖼 Swiper ajustes
-swiper-container {
-  height: 420px !important;
-  max-width: 100%;
-  margin-bottom: 20px;
+.intro-buttons {
+  padding-top: 16px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-swiper-slide {
+.intro-buttons ion-button {
+  width: 100%;
+  margin-bottom: 12px;
+  border-radius: 20px;
+  color: var(--clasica-text);
+  background-color: var(--IntroButton-Color);
+}
+
+body[color-theme="dark"] ion-button[color="dark"] {
+  --color: white;
+  --border-color: white;
+}
+
+body[color-theme="light"] ion-button[color="light"] {
+  --color: rgb(40, 32, 46);
+  --border-color: rgb(40, 32, 46);
+}
+
+
+/* 💫 Card de bienvenida (contenido principal) */
+.contenido-principal {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 16px;
-  box-sizing: border-box;
+  height: 100%;
 }
 
-// ✨ Estilos de botones
-ion-button {
-  color: black !important;
-  font-weight: 600;
-  padding-left: 20px !important;
-  padding-right: 20px !important;
-}
-
-body[color-theme="dark"] ion-button {
-  color: white !important;
-}
-
-// 💫 Card de bienvenida (contenido principal)
 .welcome-card {
-  background: linear-gradient(135deg, #fdfbfb, #ebedee);
-  color: #1e293b;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  background: rgba(var(--ion-color-primary-rgb, 56, 128, 255), 0.9);
+  color: var(--ion-color-primary-contrast);
+  padding: 40px;
+  border-radius: 15px;
   text-align: center;
-  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 90%;
+  backdrop-filter: blur(10px);
 }
 
-body[color-theme="dark"] .welcome-card {
-  background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
-  color: #f1f5f9;
+
+/* Media Queries for Responsive Design */
+@media (min-width: 768px) {
+  .slide-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .slide-text h2 {
+    font-size: 2.2rem;
+  }
+
+  .slide-text p {
+    font-size: 1.1rem;
+  }
 }
+
+
+
+ion-header ion-toolbar{
+  --background: var(--fondo-app);
+  --color: var(--clasica-title);
+}
+
+
+
+/*
+ * Enhanced Styles for the Main Content Card
+ */
+
+/* This sets up the background for the whole view */
+.contenido-principal-enhanced {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: #f0f2f5; /* A light, modern background color */
+  padding: 16px;
+}
+
+/* This is the main card container */
+.welcome-card-enhanced {
+  background: #ffffff;
+  border-radius: 16px; /* Softer, rounded corners */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* A subtle shadow to make the card "float" */
+  padding: 24px 20px;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+
+  /* A simple fade-in animation for a smooth appearance */
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.card-icon-container {
+  font-size: 4rem; /* Larger icon size */
+  color: var(--ion-color-primary, #3880ff); /* Uses your app's primary color */
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 1.8rem;
+  font-weight: 700; /* Bolder font */
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  color: #666; /* Softer color for less emphasis */
+  margin-bottom: 2rem;
+  line-height: 1.5; /* Improved readability */
+}
+
+/* Styling for your button to make it pop */
+.home-button {
+  --background: var(--ion-color-primary, #3880ff);
+  --background-activated: var(--ion-color-primary-shade, #3171e0);
+  --color: #ffffff;
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+  font-weight: 600;
+  height: 50px;
+  transition: transform 0.2s ease-out; /* Smooth transition for hover effect */
+}
+
+/* A subtle effect when the user hovers over the button on a desktop */
+.home-button:hover {
+  transform: translateY(-2px);
+}
+
+/* Keyframe animation for the fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+

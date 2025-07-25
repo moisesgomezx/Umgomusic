@@ -5,7 +5,6 @@
       slot="end"
       fill="outline"
       shape="round"
-      color="dark"
       (click)="cambiarTema()"
     >
       Cambiar Tema
@@ -14,45 +13,53 @@
 </ion-header>
 
 <ion-content fullscreen class="ion-padding">
-
   <!-- Intro con Slides -->
-  <div *ngIf="mostrarIntro" class="intro-container" style="text-align: center;">
-    <swiper-container
-      pagination="true"
-      navigation="true"
-      scrollbar="true"
-      style="max-width: 600px; height: 420px; margin: auto; display: block;"
-    >
+  <div *ngIf="mostrarIntro" class="intro-container">
+    <swiper-container pagination="true" navigation="true" scrollbar="false">
       <swiper-slide *ngFor="let genero of generosMusicales">
         <div [ngClass]="['slide-content', genero.estilo]">
-          <h2>{{ genero.titulo }}</h2>
-          <img [src]="genero.imagen" [alt]="genero.titulo" />
-          <p>{{ genero.descripcion }}</p>
+          <img
+            [src]="genero.imagen"
+            [alt]="genero.titulo"
+            class="slide-image"
+          />
+          <div class="slide-text">
+            <h2>{{ genero.titulo }}</h2>
+            <p>{{ genero.descripcion }}</p>
+          </div>
         </div>
       </swiper-slide>
     </swiper-container>
 
     <!-- Botones para controlar la intro -->
-    <div style="margin-top: 24px;">
-      <ion-button expand="full" color="success" (click)="empezarApp()" style="margin-bottom: 12px;">
+    <div class="intro-buttons">
+      <ion-button color="success" (click)="verHome()">
         Empezar
       </ion-button>
-
-      <ion-button expand="full" color="medium" (click)="verIntroNuevamente()">
+      <ion-button color="medium" (click)="verIntroNuevamente()">
         Ver intro nuevamente
       </ion-button>
     </div>
   </div>
 
   <!-- Contenido principal -->
-  <div *ngIf="!mostrarIntro" class="contenido-principal ion-padding" style="text-align: center;">
-    <h2>Bienvenido a Umgomusic 🎵</h2>
-    <p>Aquí verás tu contenido principal después de la intro.</p>
+  <div *ngIf="!mostrarIntro" class="contenido-principal-enhanced">
+  <div class="welcome-card-enhanced">
 
-    <!-- Botón para entrar a la app -->
-    <ion-button expand="full" color="primary" (click)="entrarApp()">
-      Entrar a la App
+    <!-- An icon to make the card more engaging -->
+    <div class="card-icon-container">
+      <ion-icon name="happy-outline"></ion-icon>
+    </div>
+
+    <!-- Your original content, now with specific classes for styling -->
+    <h2 class="card-title">Bienvenido a Umgomusic 🎵</h2>
+    <p class="card-subtitle">Aquí verás tu contenido principal después de la intro.</p>
+
+    <!-- The button is now styled for a more modern look but keeps its function -->
+    <ion-button class="home-button" expand="block" shape="round" (click)="verHome()">
+      Volver a Home
     </ion-button>
-  </div>
 
+  </div>
+</div>
 </ion-content>

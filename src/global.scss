@@ -1,8 +1,11 @@
 :root {
-  
-  --clasica-bg-light: #ffffff;
-  --clasica-text-light: #1e3a8a;
-  --clasica-title-light: #0f172a;
+
+
+
+  --clasica-bg-light: #fdffe4;
+  --clasica-text-light: #565319;
+  --clasica-title-light: #43460a;
+
 
   --reggaeton-bg-light: #fff7ed;
   --reggaeton-text-light: #7c2d12;
@@ -16,7 +19,7 @@
   --jazz-text-light: #581c87;
   --jazz-title-light: #4c1d95;
 
-  
+
   --clasica-bg-dark: #1e293b;
   --clasica-text-dark: #cbd5e1;
   --clasica-title-dark: #f1f5f9;
@@ -53,6 +56,7 @@ body[color-theme="light"] {
   --jazz-bg: var(--jazz-bg-light);
   --jazz-text: var(--jazz-text-light);
   --jazz-title: var(--jazz-title-light);
+  --IntroButton-Color: rgb(249, 243, 255);
 }
 
 
@@ -74,4 +78,6 @@ body[color-theme="dark"] {
   --jazz-bg: var(--jazz-bg-dark);
   --jazz-text: var(--jazz-text-dark);
   --jazz-title: var(--jazz-title-dark);
+
+  --IntroButton-Color: rgb(48, 36, 54);
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StorageService {
   private _storage: Storage | null = null;
@@ -12,10 +12,7 @@ export class StorageService {
   }
 
   async init() {
-  const storage = new Storage();          
-  this._storage = await storage.create(); 
-
-
+    this._storage = await this.storage.create();
   }
 
   async set(key: string, value: any) {

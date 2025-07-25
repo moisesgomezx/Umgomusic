@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import {
   IonHeader,
   IonToolbar,
@@ -7,7 +7,7 @@ import {
   IonButton,
 } from '@ionic/angular/standalone';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { NgIf, NgFor, NgClass } from '@angular/common'; 
+import { NgIf, NgFor, NgClass } from '@angular/common';
 import { register } from 'swiper/element/bundle';
 import { StorageService } from '../services/storage.service';
 import { Router } from '@angular/router';
@@ -37,7 +37,7 @@ export class HomePage implements OnInit {
     {
       titulo: 'Música Clásica',
       imagen: 'assets/clasica.jpg',
-      descripcion: 'Género que ha perdurado siglos y tiene gran riqueza instrumental.',
+      descripcion: 'Género que ha perdurado siglos con riqueza instrumental.',
       estilo: 'clasica',
     },
     {
@@ -62,45 +62,34 @@ export class HomePage implements OnInit {
 
   constructor(
     private storage: StorageService,
-    private router: Router
+    private router: Router,
+    private renderer: Renderer2
   ) {}
 
   ngOnInit(): void {
     register();
-
+    this.renderer.setAttribute(document.body, 'color-theme', 'light');
     this.storage.get('introVisto').then((valor) => {
-      // Mostrar intro solo si no está marcada como vista
       this.mostrarIntro = valor !== true;
-      console.log('¿Intro vista anteriormente?:', valor);
     });
   }
 
   cambiarTema() {
     this.isDarkMode = !this.isDarkMode;
     const tema = this.isDarkMode ? 'dark' : 'light';
-    document.body.setAttribute('color-theme', tema);
-    console.log('Tema cambiado a:', tema);
+    this.renderer.setAttribute(document.body, 'color-theme', tema);
   }
 
   verIntroNuevamente() {
-    console.log('Ver intro nuevamente: borrando variable');
     this.storage.remove('introVisto').then(() => {
-      this.router.navigateByUrl('/home', { replaceUrl: true });
-    });
-  }
-
-  empezarApp() {
-    this.storage.set('introVisto', true).then(() => {
       this.mostrarIntro = false;
-      console.log('Intro marcada como vista. Mostrando contenido principal');
     });
   }
 
-  entrarApp() {
-    // Opción 1: Solo ocultar intro para mostrar contenido principal
-    this.mostrarIntro = false;
-
-    // Opción 2: Navegar a otra ruta (descomenta si quieres usar navegación)
-    // this.router.navigateByUrl('/otra-ruta');
+  verHome() {
+    this.storage.set('introVisto', true).then(() => {
+      this.mostrarIntro = true;
+    });
   }
+
 }
